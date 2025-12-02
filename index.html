@@ -8,7 +8,7 @@
 
 
     <style>
-        /* RESET */
+        /* BODY */
         * {
             margin: 0;
             padding: 0;
@@ -122,7 +122,7 @@
             color: #d60078;
         }
 
-        /* MOBILE */
+        
         @media (max-width:900px) {
             .search-box {
                 display: none;
@@ -156,7 +156,11 @@
             background: #fff
         }
 
-        /* Banner wrapper */
+
+
+
+
+        /* BANNER */
         .promo-banner {
             width: 100%;
             min-height: 360px;
@@ -172,11 +176,8 @@
             position: relative;
             overflow: hidden;
             height: 100vh;
-            margin-top: 120px;
         }
 
-
-        /* content layout: left text, right CTA */
         .promo-inner {
             width: 100%;
             max-width: 1200px;
@@ -220,7 +221,7 @@
             margin-left: 6px;
         }
 
-        /* black promotional band */
+        /* FAIXA PROMOCIONAL */
         .promo-band {
             margin-top: 20px;
             display: flex;
@@ -233,9 +234,6 @@
             width: 100%;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
-
-
-        
 
         .promo-band .left {
             font-weight: 700;
@@ -250,7 +248,9 @@
             color: #fff;
         }
 
-        /* CTA on the right */
+
+
+        /* BOTAO COMPRAR NA FAIXA*/
         .promo-cta {
             flex: 0 0 260px;
             display: flex;
@@ -284,22 +284,12 @@
             color: rgba(255, 255, 255, 0.9)
         }
 
-        /* Small screens: stack and scale text for readability */
+
         @media (max-width:900px) {
             .promo-inner {
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 0
-            }
-
-            .promo-cta {
-                align-self: stretch;
-                justify-content: flex-start;
-                margin-top: 12px
-            }
-
-            .cta-btn {
-                width: 100%
             }
 
             .promo-left {
@@ -333,8 +323,80 @@
                 font-size: clamp(40px, 20vw, 72px)
             }
 
-            .promo-cta {
-                flex: 0 0 auto
+        }
+
+
+        /*JOALHERIA*/
+        .categorias-container {
+            width: 100%;
+            padding: 60px 0px;
+            background: #fff;
+        }
+
+        .titulo-area h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .titulo-area .sub {
+            font-size: 14px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .categorias-grid {
+            width: 60%;
+            max-width: 1100px;
+            margin:auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .categoria-item {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .categoria-item img {
+            width: 120px;
+            height: auto;
+            transition: transform .3s ease;
+        }
+
+        .categoria-item img:hover {
+            transform: scale(1.08);
+        }
+
+        .categoria-item span {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 760px) {
+            .categoria-item img {
+                width: 110px;
+            }
+
+            .categorias-grid {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .categoria-item img {
+                width: 90px;
+            }
+
+            .titulo-area h2 {
+                font-size: 22px;
             }
         }
     </style>
@@ -342,7 +404,7 @@
 
 <body>
     <header class="top-header">
-        <div class="logo">JOIASLUX</div>
+        <div class="logo">SYLVRAE</div>
 
         <div class="search-box">
             <input type="text" placeholder="Busque por nome ou código...">
@@ -360,13 +422,9 @@
     </header>
 
     <nav class="menu">
-        <a href="#">CYBER WEEK</a>
-        <a href="#">CHARMS</a>
-        <a href="#">BRACELETES</a>
         <a href="#">ANÉIS</a>
         <a href="#">COLARES</a>
         <a href="#">BRINCOS</a>
-        <a href="#">ACESSÓRIOS</a>
         <a href="#">LANÇAMENTOS</a>
         <a href="#">SOBRE</a>
     </nav>
@@ -388,14 +446,39 @@
                     <button class="cta-btn" style="margin-left:auto;">Comprar agora</button>
                 </div>
             </div>
+    </section> <!-- Fim do banner -->
 
-            <div class="promo-cta">
-                <div>
-                    <button class="cta-btn" aria-label="Comprar agora">Comprar agora</button>
-                    <span class="cta-desc">Frete grátis acima de R$ 199</span>
-                </div>
+    <section class="categorias-container">
+
+        <div class="titulo-area">
+            <h2>JOALHERIA SYLVARE</h2>
+            <span class="sub">COMPRE POR CATEGORIAS</span>
+        </div>
+
+        <div class="categorias-grid">
+
+            <div class="categoria-item">
+                <img src="https://pandorajoias.vtexassets.com/arquivos/ids/430177/Colar-de-Prata-Pingente-Borboleta-Brilhante-394266C01--1-.png?v=638977878591570000"
+                    alt="Colares">
+                <p>COLARES</p>
+            </div>
+
+            <div class="categoria-item">
+                <img src="https://pandorajoias.vtexassets.com/arquivos/ids/402395/PNGTRPNT_198691C01_RGB.png?v=638826663805800000"
+                    alt="Anéis">
+                <p>ANÉIS</p>
+            </div>
+
+            <div class="categoria-item">
+                <img src="https://pandorajoias.vtexassets.com/arquivos/ids/432662/Brinco-de-Prata-Pequena-Borboleta-Brilhante-294263C01--1-.png?v=638985702864900000"
+                    alt="Brincos">
+                <p>BRINCOS</p>
             </div>
         </div>
+
+    </section>
+
+    </div>
     </section>
 
 </body>
