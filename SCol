@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .filter-box {
+            width: 100%;
+            max-width: 260px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+            font-family: Arial, sans-serif;
+            margin-top: 10%;
+        }
+
+        .filter-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            margin-bottom: 25px;
+        }
+
+        .filter-group h4 {
+            font-size: 15px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .filter-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .filter-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #ff6b82;
+            /* cor do checkbox moderno */
+            cursor: pointer;
+        }
+
+        .filter-item span {
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* --- RESPONSIVO --- */
+
+        @media (max-width: 768px) {
+            .filter-box {
+                max-width: 100%;
+                width: 100%;
+                box-shadow: none;
+                padding: 10px 0;
+            }
+        }
+
+
+
+
+
+
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* TOPO */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: white;
+            border-bottom: 1px solid #f0c5d8;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        /* LOGO */
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* PESQUISA */
+        .search-box {
+            display: flex;
+            width: 40%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 8px 12px;
+            border: none;
+            background: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* ÍCONES */
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 22px;
+            text-decoration: none;
+        }
+
+        .icons a {
+            text-decoration: none;
+            border: none;
+            outline: none;
+            color: inherit;
+        }
+
+        .icons a:hover {
+            text-decoration: none;
+        }
+
+        .cart {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background: #e00076;
+            color: white;
+            padding: 2px 6px;
+            font-size: 12px;
+            border-radius: 50%;
+        }
+
+        /* MENU */
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 10px 0;
+            background: white;
+            border-bottom: 1px solid #f1f1f1;
+            position: fixed;
+            top: 70px;
+            width: 100%;
+            z-index: 999;
+
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .menu a:hover {
+            color: #d60078;
+        }
+
+        /* MOBILE */
+        @media (max-width:900px) {
+            .search-box {
+                display: none;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .top-header {
+                padding: 10px 20px;
+            }
+        }
+
+
+        :root {
+            --purple-1: #6b1b6e;
+            --purple-2: #d24c8f;
+            --accent: #ffefef;
+            --black: #0b0b0b;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+            background: #fff
+        }
+
+
+
+
+        .category-banner {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 80px;
+            background: #f7f7f7;
+            gap: 20px;
+            flex-wrap: wrap;
+            /* importante para responsividade */
+        }
+
+        .banner-text {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .banner-text h1 {
+            font-size: 45px;
+            font-weight: 900;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .banner-text .product-count {
+            font-size: 18px;
+            font-weight: 400;
+            color: #444;
+        }
+
+        .banner-text p {
+            margin-top: 18px;
+            max-width: 480px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .banner-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .banner-image img {
+            width: 100%;
+            max-width: 520px;
+            object-fit: contain;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+
+        /* tablets */
+        @media (max-width: 900px) {
+            .category-banner {
+                padding: 40px 40px;
+            }
+
+            .banner-text h1 {
+                font-size: 38px;
+            }
+        }
+
+        /* celulares */
+        @media (max-width: 600px) {
+            .category-banner {
+                flex-direction: column;
+                text-align: left;
+                padding: 30px 20px;
+            }
+
+            .banner-text h1 {
+                font-size: 32px;
+            }
+
+            .banner-image img {
+                max-width: 350px;
+                margin-top: 20px;
+            }
+        }
+
+
+
+
+        /* --- CARD BASE --- */
+
+        .product-card {
+            width: 100%;
+            max-width: 320px;
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            transition: transform .25s ease;
+            margin-top: 10%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* --- WISHLIST / CORAÇÃO --- */
+
+        .wishlist-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ffffffd5;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .wishlist-btn:hover {
+            background: #ffe3ea;
+        }
+
+        /* --- IMAGEM --- */
+
+        .product-image {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* --- INFO DO PRODUTO --- */
+
+        .product-info {
+            margin-top: 12px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-metal,
+        .installments {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #777;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .new-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        /* --- HOVER ACTIONS (aparecem no hover) --- */
+
+        .hover-actions {
+            position: absolute;
+            bottom: -120px;
+            /* esconde inicialmente */
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: #ffffffee;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: bottom .35s ease;
+        }
+
+        /* revela no hover */
+        .product-card:hover .hover-actions {
+            bottom: 0;
+        }
+
+        /* --- TAMANHO --- */
+
+        .size {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .size-text {
+            font-weight: bold;
+        }
+
+        .size-value {
+            background: #000;
+            color: #fff;
+            border-radius: 50px;
+            padding: 5px 12px;
+        }
+
+        /* --- BOTÃO ADICIONAR AO CARRINHO --- */
+
+        .add-cart-btn {
+            width: 100%;
+            background: #ff6b82;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .add-cart-btn:hover {
+            background: #ff4f6b;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+
+        /* Ajusta tamanho e reorganização em telas pequenas */
+        @media (max-width: 480px) {
+            .product-card {
+                max-width: 100%;
+                padding: 12px;
+            }
+
+            .product-title {
+                font-size: 15px;
+            }
+
+            .new-price {
+                font-size: 18px;
+            }
+
+            .add-cart-btn {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+
+
+
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .product-card {
+            flex: 1 1 260px;
+        }
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <header class="top-header">
+        <div class="logo">JOIASLUX</div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Busque por nome ou código...">
+            <button>🔍</button>
+        </div>
+
+        <div class="icons">
+            <span><a href="#">👤</span></a>
+            <span><a href="#">📍</span></a>
+            <span><a href="#">♡</span></a>
+            <span>
+                <class="cart"><a href="#">🛍<span class="cart-count">0</span>
+            </span></a>
+        </div>
+    </header>
+
+    <nav class="menu">
+        <a href="#">CYBER WEEK</a>
+        <a href="#">CHARMS</a>
+        <a href="#">BRACELETES</a>
+        <a href="#">ANÉIS</a>
+        <a href="#">COLARES</a>
+        <a href="#">BRINCOS</a>
+        <a href="#">ACESSÓRIOS</a>
+        <a href="#">LANÇAMENTOS</a>
+        <a href="#">SOBRE</a>
+    </nav>
+
+
+
+
+
+    <section class="category-banner">
+        <div class="banner-text">
+            <h1>COLARES</h1>
+            <p>
+                Existem joias que são essenciais para trazer mais charme e elegância para o dia a dia.
+                E o colar feminino é uma peça que não pode faltar.
+            </p>
+        </div>
+
+        <div class="banner-image">
+            <img src="https://wallpapers.com/images/hd/jewelry-background-t5inm8ksiovejqso.jpg" alt="Colares da Coleção">
+        </div>
+    </section>
+
+
+
+
+    <div class="products-container">
+        <div class="filter-box">
+            <h3 class="filter-title">Filtros</h3>
+
+            <div class="filter-group">
+                <h4>Metal</h4>
+
+                <label class="filter-item">
+                    <input type="checkbox">
+                    <span>Prata de Lei</span>
+                </label>
+
+                <label class="filter-item">
+                    <input type="checkbox">
+                    <span>Ouro 18k</span>
+                </label>
+
+                <label class="filter-item">
+                    <input type="checkbox">
+                    <span>Aço</span>
+                </label>
+            </div>
+
+            <div class="filter-group">
+                <h4>Preço</h4>
+
+                <label class="filter-item">
+                    <input type="checkbox">
+                    <span>Até R$ 300</span>
+                </label>
+
+                <label class="filter-item">
+                    <input type="checkbox">
+                    <span>R$ 300 a R$ 700</span>
+                </label>
+
+                <label class="filter-item">
+                    <input type="checkbox">
+                    <span>Acima de R$ 700</span>
+                </label>
+            </div>
+
+            <div class="filter-group">
+                <h4>Coleção</h4>
+
+                <label class="filter-item">
+                    <input type="checkbox">
+                    <span>Pandora Me</span>
+                </label>
+
+                <label class="filter-item">
+                    <input type="checkbox">
+                    <span>Essence</span>
+                </label>
+
+                <label class="filter-item">
+                    <input type="checkbox">
+                    <span>Clássicos</span>
+                </label>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- 1 Card -->
+        <div class="product-card">
+            <div class="wishlist-btn">
+                <span>♡</span>
+            </div>
+
+            <img src="https://pandorajoias.vtexassets.com/arquivos/ids/426115/PNGTRPNT_392303C00_RGB.png?v=638962989790200000"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
+
+            <div class="product-info">
+                <h3 class="product-title">Colar De Corrente De Elos Duplos Pandora Me</h3>
+                <p class="product-metal"><strong>Metal:</strong> Prata de Lei</p>
+
+                <p class="old-price">R$ 1.919,00</p>
+                <p class="new-price">R$ 959,50</p>
+                <p class="installments">ou 10x de R$ 95,95 sem juros</p>
+            </div>
+
+            <!-- aparece só no hover -->
+            <div class="hover-actions">
+                <div class="size">
+                    <span class="size-text">Tamanho:</span>
+                    <span class="size-value">45</span>
+                </div>
+                <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
+            </div>
+        </div>
+
+        <!-- 2 Card -->
+        <div class="product-card">
+            <div class="wishlist-btn">
+                <span>♡</span>
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
+
+            <div class="product-info">
+                <h3 class="product-title">Nome do Colar</h3>
+                <p class="product-metal"><strong>Metal:</strong> Prata de Lei</p>
+
+                <p class="old-price">Preço que era</p>
+                <p class="new-price">Preço que passou a ser</p>
+                <p class="installments">Preço parcelado e quantidade de parcelamentos</p>
+            </div>
+
+            <!-- aparece só no hover -->
+            <div class="hover-actions">
+                <div class="size">
+                    <span class="size-text">Tamanho:</span>
+                    <span class="size-value">60</span>
+                    <span class="size-value">45</span>
+                    <span class="size-value">50</span>
+                </div>
+                <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
+            </div>
+        </div>
+
+        <!-- 3 Card -->
+        <div class="product-card">
+            <div class="wishlist-btn">
+                <span>♡</span>
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
+
+            <div class="product-info">
+                <h3 class="product-title">Nome do Colar</h3>
+                <p class="product-metal"><strong>Metal:</strong> Prata de Lei</p>
+
+                <p class="old-price">Preço que era</p>
+                <p class="new-price">Preço que passou a ser</p>
+                <p class="installments">Preço parcelado e quantidade de parcelamentos</p>
+            </div>
+
+            <!-- aparece só no hover -->
+            <div class="hover-actions">
+                <div class="size">
+                    <span class="size-text">Tamanho:</span>
+                    <span class="size-value">60</span>
+                    <span class="size-value">45</span>
+                    <span class="size-value">50</span>
+                </div>
+                <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
