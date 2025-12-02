@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* TOPO */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: white;
+            border-bottom: 1px solid #f0c5d8;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        /* LOGO */
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* PESQUISA */
+        .search-box {
+            display: flex;
+            width: 40%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 8px 12px;
+            border: none;
+            background: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* ÍCONES */
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 22px;
+            text-decoration: none;
+        }
+
+        .icons a {
+            text-decoration: none;
+            border: none;
+            outline: none;
+            color: inherit;
+        }
+
+        .icons a:hover {
+            text-decoration: none;
+        }
+
+        .cart {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background: #e00076;
+            color: white;
+            padding: 2px 6px;
+            font-size: 12px;
+            border-radius: 50%;
+        }
+
+        /* MENU */
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 10px 0;
+            background: white;
+            border-bottom: 1px solid #f1f1f1;
+            position: fixed;
+            top: 70px;
+            width: 100%;
+            z-index: 999;
+
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .menu a:hover {
+            color: #d60078;
+        }
+
+        /* MOBILE */
+        @media (max-width:900px) {
+            .search-box {
+                display: none;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .top-header {
+                padding: 10px 20px;
+            }
+        }
+
+
+        :root {
+            --purple-1: #6b1b6e;
+            --purple-2: #d24c8f;
+            --accent: #ffefef;
+            --black: #0b0b0b;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+            background: #fff
+        }
+
+        /* Banner wrapper */
+        .promo-banner {
+            width: 100%;
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+            margin-top: -7%;
+            justify-content: center;
+            padding: 36px;
+            background:
+                radial-gradient(1200px 400px at 10% 20%, rgba(0, 0, 0, 0.15), transparent 20%),
+                linear-gradient(90deg, var(--purple-1) 0%, #8d2b67 25%, var(--purple-2) 60%, var(--purple-2) 75%, rgba(189, 44, 123, 0.9) 85%, var(--black) 100%);
+            color: var(--accent);
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            margin-top: 120px;
+        }
+
+
+        /* content layout: left text, right CTA */
+        .promo-inner {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .promo-left {
+            flex: 1 1 0;
+            color: var(--accent);
+        }
+
+        .title {
+            display: flex;
+            align-items: baseline;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .title .main {
+            font-weight: 800;
+            font-size: clamp(28px, 6vw, 44px);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .title .big-percent {
+            font-weight: 800;
+            font-size: clamp(72px, 12vw, 160px);
+            line-height: 0.9;
+            color: var(--accent);
+            text-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+        }
+
+        .title .off {
+            font-weight: 800;
+            font-size: clamp(20px, 4vw, 36px);
+            text-transform: uppercase;
+            opacity: 0.95;
+            margin-left: 6px;
+        }
+
+        /* black promotional band */
+        .promo-band {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 0, 0, 0.85) 60%, rgba(255, 255, 255, 0.02) 100%);
+            padding: 16px 18px;
+            border-radius: 6px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+
+        
+
+        .promo-band .left {
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .promo-band .right {
+            font-weight: 800;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        /* CTA on the right */
+        .promo-cta {
+            flex: 0 0 260px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .cta-btn {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--black);
+            border: none;
+            padding: 18px 28px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35)
+        }
+
+        .cta-desc {
+            display: block;
+            font-size: 12px;
+            opacity: 0.85;
+            margin-top: 6px;
+            text-align: right;
+            color: rgba(255, 255, 255, 0.9)
+        }
+
+        /* Small screens: stack and scale text for readability */
+        @media (max-width:900px) {
+            .promo-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0
+            }
+
+            .promo-cta {
+                align-self: stretch;
+                justify-content: flex-start;
+                margin-top: 12px
+            }
+
+            .cta-btn {
+                width: 100%
+            }
+
+            .promo-left {
+                width: 100%
+            }
+
+            .title {
+                gap: 8px
+            }
+
+            .title .big-percent {
+                font-size: clamp(56px, 18vw, 96px)
+            }
+
+            .promo-band {
+                flex-direction: column;
+                align-items: flex-start
+            }
+        }
+
+        @media (max-width:480px) {
+            .promo-banner {
+                padding: 20px
+            }
+
+            .title .main {
+                font-size: clamp(20px, 6vw, 28px)
+            }
+
+            .title .big-percent {
+                font-size: clamp(40px, 20vw, 72px)
+            }
+
+            .promo-cta {
+                flex: 0 0 auto
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-header">
+        <div class="logo">JOIASLUX</div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Busque por nome ou código...">
+            <button>🔍</button>
+        </div>
+
+        <div class="icons">
+            <span><a href="#">👤</span></a>
+            <span><a href="#">📍</span></a>
+            <span><a href="#">♡</span></a>
+            <span>
+                <class="cart"><a href="#">🛍<span class="cart-count">0</span>
+            </span></a>
+        </div>
+    </header>
+
+    <nav class="menu">
+        <a href="#">CYBER WEEK</a>
+        <a href="#">CHARMS</a>
+        <a href="#">BRACELETES</a>
+        <a href="#">ANÉIS</a>
+        <a href="#">COLARES</a>
+        <a href="#">BRINCOS</a>
+        <a href="#">ACESSÓRIOS</a>
+        <a href="#">LANÇAMENTOS</a>
+        <a href="#">SOBRE</a>
+    </nav>
+
+    <section class="promo-banner" role="region" aria-label="Promoção Black Friday">
+        <div class="promo-inner">
+            <div class="promo-left">
+
+                <div class="title" aria-hidden="true">
+                    <div class="main">BLACK FRIDAY</div>
+                    <div class="big-percent">50<span style="font-size:.45em; vertical-align:middle;">%</span></div>
+                    <div class="off">OFF</div>
+                </div>
+
+                <div class="promo-band" aria-hidden="true">
+                    <div class="left">Compre mais, ganhe mais!</div>
+                    <div class="right">3 produtos = +10% | 4 ou mais = +15%</div>
+
+                    <button class="cta-btn" style="margin-left:auto;">Comprar agora</button>
+                </div>
+            </div>
+
+            <div class="promo-cta">
+                <div>
+                    <button class="cta-btn" aria-label="Comprar agora">Comprar agora</button>
+                    <span class="cta-desc">Frete grátis acima de R$ 199</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
