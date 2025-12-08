@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -122,7 +122,7 @@
             color: #d60078;
         }
 
-        
+
         @media (max-width:900px) {
             .search-box {
                 display: none;
@@ -348,7 +348,7 @@
         .categorias-grid {
             width: 60%;
             max-width: 1100px;
-            margin:auto;
+            margin: auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -399,6 +399,293 @@
                 font-size: 22px;
             }
         }
+
+
+
+
+
+        /* CONTAINER GERAL */
+        .momentos-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 50px;
+            padding: 50px 5%;
+            flex-wrap: wrap;
+        }
+
+        /* TEXTO À ESQUERDA */
+        .texto-lateral {
+            width: 40%;
+            min-width: 250px;
+        }
+
+        .texto-lateral h2 {
+            font-size: 40px;
+            font-weight: 800;
+        }
+
+        /* COLUNA DA DIREITA */
+        .imagem-grande {
+            width: 55%;
+        }
+
+        /* CARD GRANDE SUPERIOR */
+        .card-momento.grande img {
+            width: 100%;
+            height: 390px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* LINHA DOS 3 CARDS PEQUENOS */
+        .sub-cards {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            gap: 15px;
+        }
+
+        .card-momento.pequeno {
+            flex: 1;
+        }
+
+        .card-momento.pequeno img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Cards gerais */
+        .card-momento {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        /* Efeito zoom */
+        .card-momento img {
+            transition: transform .5s ease;
+        }
+
+        .card-momento:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Barra branca que sobe */
+        .hover-info {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all .35s ease;
+        }
+
+        .card-momento:hover .hover-info {
+            bottom: 0;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .momentos-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .texto-lateral,
+            .imagem-grande {
+                width: 100%;
+            }
+
+            .texto-lateral h2 {
+                text-align: center;
+            }
+
+            .sub-cards {
+                flex-direction: column;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        /* quando aparecer */
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+
+        /* ----- RESPONSIVIDADE MOBILE  NAVBAR----- */
+        @media (max-width: 900px) {
+
+            /* Oculta menu principal */
+            .menu {
+                display: none !important;
+            }
+
+            /* Oculta barra de busca */
+            .search-box {
+                display: none !important;
+            }
+
+            .top-header {
+                justify-content: center;
+                padding: 12px 20px;
+                height: 70px;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            /* Logo centralizada */
+            .logo {
+                font-size: 22px;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            /* Ícones alinhados à direita */
+            .icons {
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                gap: 10px;
+            }
+
+            /* Esconde os ícones que você não quer no mobile */
+            .icons span:nth-child(2),
+            /* localização */
+            .icons span:nth-child(3)
+
+            /* coração */
+                {
+                display: none !important;
+            }
+
+            /* Ajuste para o banner não ficar com espaço */
+            .promo-banner {
+                margin-top: 0px !important;
+                /* sobe para encostar na navbar */
+            }
+
+            /* Caixa de categorias mais ajustada */
+            .categorias-grid {
+                width: 90%;
+            }
+
+            /* Texto da seção */
+            .texto-lateral h2 {
+                text-align: center;
+                font-size: 28px;
+            }
+
+            /* Cards responsivos */
+            .sub-cards {
+                flex-direction: column;
+            }
+
+            .card-momento img {
+                height: 250px;
+            }
+        }
+
+
+
+
+
+        /* ---------- CONTAINER PRINCIPAL ---------- */
+        .banner-disney {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        /* ---------- IMAGEM ---------- */
+        .banner-img {
+            width: 60%;
+        }
+
+        .banner-img img {
+            width: 100%;
+            border-radius: 0;
+            object-fit: cover;
+        }
+
+        /* ---------- TEXTO ---------- */
+        .banner-texto {
+            width: 40%;
+        }
+
+        .banner-texto h1 {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #c90404;
+        }
+
+        .banner-texto p {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .btn-banner {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: black;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-banner:hover {
+            background: #333;
+        }
+
+        /* ---------- RESPONSIVIDADE ---------- */
+        @media (max-width: 768px) {
+
+            .banner-disney {
+                flex-direction: column;
+                /* imagem em cima, texto embaixo */
+                text-align: center;
+                padding: 20px;
+            }
+
+            .banner-img,
+            .banner-texto {
+                width: 100%;
+            }
+
+            .banner-texto h1 {
+                font-size: 28px;
+                /* menor no celular */
+            }
+
+            .btn-banner {
+                padding: 12px 30px;
+                width: auto;
+            }
+        }
     </style>
 </head>
 
@@ -435,7 +722,7 @@
 
                 <div class="title" aria-hidden="true">
                     <div class="main">BLACK FRIDAY</div>
-                    <div class="big-percent">50<span style="font-size:.45em; vertical-align:middle;">%</span></div>
+                    <div class="big-percent">50 <span style="font-size:.45em; vertical-align:middle;">%</span></div>
                     <div class="off">OFF</div>
                 </div>
 
@@ -447,6 +734,8 @@
                 </div>
             </div>
     </section> <!-- Fim do banner -->
+
+
 
     <section class="categorias-container">
 
@@ -475,12 +764,83 @@
                 <p>BRINCOS</p>
             </div>
         </div>
-
     </section>
 
-    </div>
+
+
+
+    <section class="momentos-container">
+
+        <div class="texto-lateral">
+            <h2>JOIAS PARA TODOS OS MOMENTOS</h2>
+        </div>
+
+        <div class="imagem-grande">
+            <div class="card-momento grande reveal">
+                <img src="https://pandorajoias.vtexassets.com/assets/vtex.file-manager-graphql/images/1d53d92c-2578-4d05-a28e-5f496842b3f8___69530a0778c0121868e2d1caef1b4f59.jpg"
+                    alt="">
+                <div class="hover-info">VIVA INTENSAMENTE</div>
+            </div>
+
+            <div class="sub-cards">
+                <div class="card-momento pequeno reveal">
+                    <img src="https://pandorajoias.vtexassets.com/assets/vtex.file-manager-graphql/images/1d53d92c-2578-4d05-a28e-5f496842b3f8___69530a0778c0121868e2d1caef1b4f59.jpg"
+                        alt="">
+                    <div class="hover-info">SYLVARE TALISMÃ</div>
+                </div>
+
+                <div class="card-momento pequeno reveal">
+                    <img src="https://pandorajoias.vtexassets.com/assets/vtex.file-manager-graphql/images/1d53d92c-2578-4d05-a28e-5f496842b3f8___69530a0778c0121868e2d1caef1b4f59.jpg"
+                        alt="">
+                    <div class="hover-info">BRILHE NESSA TEMPORADA</div>
+                </div>
+
+                <div class="card-momento pequeno reveal">
+                    <img src="https://pandorajoias.vtexassets.com/assets/vtex.file-manager-graphql/images/1d53d92c-2578-4d05-a28e-5f496842b3f8___69530a0778c0121868e2d1caef1b4f59.jpg"
+                        alt="">
+                    <div class="hover-info">PRESENTE PERFEITO</div>
+                </div>
+            </div>
+        </div>
     </section>
+
+
+
+    <section class="banner-disney">
+        <div class="banner-img">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbdgkiIdrDHhu5tzJXYJ8x5oSVuhl44QjuRQ&s"
+                alt="Disney x Pandora">
+        </div>
+
+        <div class="banner-texto">
+            <h1>STRANGER THINGS X<br>SYLVARE</h1>
+
+            <p>
+                Entre no universo sombrio de Stranger Things com peças que unem mistério, estilo e personalidade.<br>
+                Coleções exclusivas inspiradas nos personagens, símbolos e momentos icônicos da série.
+            </p>
+
+            <a href="#" class="btn-banner">COMPRAR AGORA</a>
+        </div>
+    </section>
+
+
 
 </body>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.2 /* quanto da imagem precisa aparecer (0.2 = 20%) */
+    });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
+
 
 </html>
