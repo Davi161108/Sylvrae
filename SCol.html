@@ -17,24 +17,24 @@
             font-family: Arial, sans-serif;
             margin-top: 10%;
         }
-
+        
         .filter-title {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 20px;
         }
-
+        
         .filter-group {
             margin-bottom: 25px;
         }
-
+        
         .filter-group h4 {
             font-size: 15px;
             margin-bottom: 10px;
             font-weight: bold;
             color: #444;
         }
-
+        
         .filter-item {
             display: flex;
             align-items: center;
@@ -43,7 +43,7 @@
             cursor: pointer;
             user-select: none;
         }
-
+        
         .filter-item input[type="checkbox"] {
             width: 18px;
             height: 18px;
@@ -51,14 +51,13 @@
             /* cor do checkbox moderno */
             cursor: pointer;
         }
-
+        
         .filter-item span {
             font-size: 14px;
             color: #333;
         }
-
         /* --- RESPONSIVO --- */
-
+        
         @media (max-width: 768px) {
             .filter-box {
                 max-width: 100%;
@@ -67,21 +66,16 @@
                 padding: 10px 0;
             }
         }
-
-
-
-
-
-
         /* RESET */
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
-
         /* TOPO */
+        
         .top-header {
             display: flex;
             justify-content: space-between;
@@ -93,15 +87,15 @@
             top: 0;
             z-index: 50;
         }
-
         /* LOGO */
+        
         .logo {
             font-size: 26px;
             font-weight: bold;
             letter-spacing: 2px;
         }
-
         /* PESQUISA */
+        
         .search-box {
             display: flex;
             width: 40%;
@@ -109,14 +103,14 @@
             border-radius: 4px;
             overflow: hidden;
         }
-
+        
         .search-box input {
             width: 100%;
             padding: 8px 12px;
             border: none;
             outline: none;
         }
-
+        
         .search-box button {
             padding: 8px 12px;
             border: none;
@@ -124,8 +118,8 @@
             cursor: pointer;
             font-size: 18px;
         }
-
         /* ÍCONES */
+        
         .icons {
             display: flex;
             align-items: center;
@@ -133,22 +127,22 @@
             font-size: 22px;
             text-decoration: none;
         }
-
+        
         .icons a {
             text-decoration: none;
             border: none;
             outline: none;
             color: inherit;
         }
-
+        
         .icons a:hover {
             text-decoration: none;
         }
-
+        
         .cart {
             position: relative;
         }
-
+        
         .cart-count {
             position: absolute;
             top: -5px;
@@ -159,8 +153,8 @@
             font-size: 12px;
             border-radius: 50%;
         }
-
         /* MENU */
+        
         .menu {
             display: flex;
             justify-content: center;
@@ -172,9 +166,8 @@
             top: 70px;
             width: 100%;
             z-index: 999;
-
         }
-
+        
         .menu a {
             text-decoration: none;
             color: #333;
@@ -182,48 +175,42 @@
             font-weight: bold;
             letter-spacing: 1px;
         }
-
+        
         .menu a:hover {
             color: #d60078;
         }
-
         /* MOBILE */
+        
         @media (max-width:900px) {
             .search-box {
                 display: none;
             }
-
             .menu {
                 flex-wrap: wrap;
                 gap: 12px;
             }
-
             .top-header {
                 padding: 10px 20px;
             }
         }
-
-
-        :root {
+        
+         :root {
             --purple-1: #6b1b6e;
             --purple-2: #d24c8f;
             --accent: #ffefef;
             --black: #0b0b0b;
         }
-
+        
         * {
             box-sizing: border-box
         }
-
+        
         body {
             margin: 0;
             font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
             background: #fff
         }
-
-
-
-
+        
         .category-banner {
             width: 100%;
             display: flex;
@@ -235,12 +222,12 @@
             flex-wrap: wrap;
             /* importante para responsividade */
         }
-
+        
         .banner-text {
             flex: 1;
             min-width: 260px;
         }
-
+        
         .banner-text h1 {
             font-size: 45px;
             font-weight: 900;
@@ -249,13 +236,13 @@
             align-items: center;
             gap: 15px;
         }
-
+        
         .banner-text .product-count {
             font-size: 18px;
             font-weight: 400;
             color: #444;
         }
-
+        
         .banner-text p {
             margin-top: 18px;
             max-width: 480px;
@@ -263,55 +250,47 @@
             line-height: 1.5;
             color: #333;
         }
-
+        
         .banner-image {
             flex: 1;
             display: flex;
             justify-content: flex-end;
         }
-
+        
         .banner-image img {
             width: 100%;
             max-width: 520px;
             object-fit: contain;
         }
-
         /* --- RESPONSIVIDADE --- */
-
         /* tablets */
+        
         @media (max-width: 900px) {
             .category-banner {
                 padding: 40px 40px;
             }
-
             .banner-text h1 {
                 font-size: 38px;
             }
         }
-
         /* celulares */
+        
         @media (max-width: 600px) {
             .category-banner {
                 flex-direction: column;
                 text-align: left;
                 padding: 30px 20px;
             }
-
             .banner-text h1 {
                 font-size: 32px;
             }
-
             .banner-image img {
                 max-width: 350px;
                 margin-top: 20px;
             }
         }
-
-
-
-
         /* --- CARD BASE --- */
-
+        
         .product-card {
             width: 100%;
             max-width: 320px;
@@ -325,13 +304,12 @@
             transition: transform .25s ease;
             margin-top: 10%;
         }
-
+        
         .product-card:hover {
             transform: translateY(-5px);
         }
-
         /* --- WISHLIST / CORAÇÃO --- */
-
+        
         .wishlist-btn {
             position: absolute;
             top: 10px;
@@ -347,51 +325,48 @@
             cursor: pointer;
             transition: .3s;
         }
-
+        
         .wishlist-btn:hover {
             background: #ffe3ea;
         }
-
         /* --- IMAGEM --- */
-
+        
         .product-image {
             width: 100%;
             border-radius: 8px;
         }
-
         /* --- INFO DO PRODUTO --- */
-
+        
         .product-info {
             margin-top: 12px;
         }
-
+        
         .product-title {
             font-size: 16px;
             font-weight: bold;
             margin-bottom: 5px;
         }
-
+        
         .product-metal,
         .installments {
             font-size: 14px;
             color: #555;
         }
-
+        
         .old-price {
             text-decoration: line-through;
             color: #777;
             margin-top: 8px;
             font-size: 14px;
         }
-
+        
         .new-price {
             font-size: 20px;
             font-weight: bold;
             color: #000;
         }
-
         /* --- HOVER ACTIONS (aparecem no hover) --- */
-
+        
         .hover-actions {
             position: absolute;
             bottom: -120px;
@@ -405,33 +380,31 @@
             gap: 10px;
             transition: bottom .35s ease;
         }
-
         /* revela no hover */
+        
         .product-card:hover .hover-actions {
             bottom: 0;
         }
-
         /* --- TAMANHO --- */
-
+        
         .size {
             display: flex;
             align-items: center;
             gap: 8px;
         }
-
+        
         .size-text {
             font-weight: bold;
         }
-
+        
         .size-value {
             background: #000;
             color: #fff;
             border-radius: 50px;
             padding: 5px 12px;
         }
-
         /* --- BOTÃO ADICIONAR AO CARRINHO --- */
-
+        
         .add-cart-btn {
             width: 100%;
             background: #ff6b82;
@@ -444,57 +417,176 @@
             cursor: pointer;
             transition: .3s;
         }
-
+        
         .add-cart-btn:hover {
             background: #ff4f6b;
         }
-
         /* --- RESPONSIVIDADE --- */
-
         /* Ajusta tamanho e reorganização em telas pequenas */
+        
         @media (max-width: 480px) {
             .product-card {
                 max-width: 100%;
                 padding: 12px;
             }
-
             .product-title {
                 font-size: 15px;
             }
-
             .new-price {
                 font-size: 18px;
             }
-
             .add-cart-btn {
                 font-size: 14px;
                 padding: 10px;
             }
         }
-
-
-
-
+        
         .products-container {
             display: flex;
             flex-wrap: wrap;
             gap: 25px;
         }
-
+        
         .product-card {
             flex: 1 1 260px;
         }
-
-
-
-
-
+        /**/
+        
+        .footer-infos {
+            background-color: #23201B;
+            /* mesma cor da imagem */
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            text-align: center;
+            flex-wrap: wrap;
+            /* responsivo */
+            margin-top: 10%;
+        }
+        
+        .footer-infos .info-item img {
+            width: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-infos h3 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .footer-infos p {
+            color: #ddd;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        /**/
+        
+        .footer {
+            background: #f2f2f279;
+            padding: 40px 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            flex-wrap: wrap;
+            margin-top: 3%;
+            text-align: center;
+            background-color: #ffffff54;
+        }
+        
+        .footer-col {
+            width: 30%;
+            min-width: 250px;
+        }
+        
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-col ul li a {
+            text-decoration: none;
+            color: #333;
+            transition: 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+        /* Responsivo */
+        
+        @media (max-width: 768px) {
+            .footer-col {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+        /**/
+        
+        .payment-security {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+            gap: 20px;
+        }
+        
+        .payment-methods,
+        .security-seal {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .payment-methods span,
+        .security-seal span {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .payment-methods img,
+        .security-seal img {
+            height: 32px;
+            /* ajuste o tamanho como quiser */
+            object-fit: contain;
+        }
+        /* Responsivo */
+        
+        @media (max-width: 768px) {
+            .payment-security {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
     </style>
 </head>
 
 <body>
     <header class="top-header">
-        <div class="logo">JOIASLUX</div>
+        <div class="logo">Sylvrae</div>
 
         <div class="search-box">
             <input type="text" placeholder="Busque por nome ou código...">
@@ -507,7 +599,8 @@
             <span><a href="#">♡</span></a>
             <span>
                 <class="cart"><a href="#">🛍<span class="cart-count">0</span>
-            </span></a>
+            </span>
+            </a>
         </div>
     </header>
 
@@ -531,8 +624,7 @@
         <div class="banner-text">
             <h1>COLARES</h1>
             <p>
-                Existem joias que são essenciais para trazer mais charme e elegância para o dia a dia.
-                E o colar feminino é uma peça que não pode faltar.
+                Existem joias que são essenciais para trazer mais charme e elegância para o dia a dia. E o colar feminino é uma peça que não pode faltar.
             </p>
         </div>
 
@@ -591,7 +683,7 @@
 
                 <label class="filter-item">
                     <input type="checkbox">
-                    <span>Pandora Me</span>
+                    <span>Sylvrae Me</span>
                 </label>
 
                 <label class="filter-item">
@@ -617,8 +709,7 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://pandorajoias.vtexassets.com/arquivos/ids/426115/PNGTRPNT_392303C00_RGB.png?v=638962989790200000"
-                alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://pandorajoias.vtexassets.com/arquivos/ids/426115/PNGTRPNT_392303C00_RGB.png?v=638962989790200000" alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Colar De Corrente De Elos Duplos Pandora Me</h3>
@@ -645,8 +736,7 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
-                alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Nome do Colar</h3>
@@ -675,8 +765,7 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
-                alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Nome do Colar</h3>
@@ -698,7 +787,327 @@
                 <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
             </div>
         </div>
+
+        <!-- 4 Card -->
+        <div class="product-card">
+            <div class="wishlist-btn">
+                <span>♡</span>
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+
+            <div class="product-info">
+                <h3 class="product-title">Nome do Colar</h3>
+                <p class="product-metal"><strong>Metal:</strong> Prata de Lei</p>
+
+                <p class="old-price">Preço que era</p>
+                <p class="new-price">Preço que passou a ser</p>
+                <p class="installments">Preço parcelado e quantidade de parcelamentos</p>
+            </div>
+
+            <!-- aparece só no hover -->
+            <div class="hover-actions">
+                <div class="size">
+                    <span class="size-text">Tamanho:</span>
+                    <span class="size-value">60</span>
+                    <span class="size-value">45</span>
+                    <span class="size-value">50</span>
+                </div>
+                <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
+            </div>
+        </div>
+
+        <!-- 5 Card -->
+        <div class="product-card">
+            <div class="wishlist-btn">
+                <span>♡</span>
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+
+            <div class="product-info">
+                <h3 class="product-title">Nome do Colar</h3>
+                <p class="product-metal"><strong>Metal:</strong> Prata de Lei</p>
+
+                <p class="old-price">Preço que era</p>
+                <p class="new-price">Preço que passou a ser</p>
+                <p class="installments">Preço parcelado e quantidade de parcelamentos</p>
+            </div>
+
+            <!-- aparece só no hover -->
+            <div class="hover-actions">
+                <div class="size">
+                    <span class="size-text">Tamanho:</span>
+                    <span class="size-value">60</span>
+                    <span class="size-value">45</span>
+                    <span class="size-value">50</span>
+                </div>
+                <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
+            </div>
+        </div>
+
+        <!-- 6 Card -->
+        <div class="product-card">
+            <div class="wishlist-btn">
+                <span>♡</span>
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+
+            <div class="product-info">
+                <h3 class="product-title">Nome do Colar</h3>
+                <p class="product-metal"><strong>Metal:</strong> Prata de Lei</p>
+
+                <p class="old-price">Preço que era</p>
+                <p class="new-price">Preço que passou a ser</p>
+                <p class="installments">Preço parcelado e quantidade de parcelamentos</p>
+            </div>
+
+            <!-- aparece só no hover -->
+            <div class="hover-actions">
+                <div class="size">
+                    <span class="size-text">Tamanho:</span>
+                    <span class="size-value">60</span>
+                    <span class="size-value">45</span>
+                    <span class="size-value">50</span>
+                </div>
+                <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
+            </div>
+        </div>
+
+        <!-- 7 Card -->
+        <div class="product-card">
+            <div class="wishlist-btn">
+                <span>♡</span>
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+
+            <div class="product-info">
+                <h3 class="product-title">Nome do Colar</h3>
+                <p class="product-metal"><strong>Metal:</strong> Prata de Lei</p>
+
+                <p class="old-price">Preço que era</p>
+                <p class="new-price">Preço que passou a ser</p>
+                <p class="installments">Preço parcelado e quantidade de parcelamentos</p>
+            </div>
+
+            <!-- aparece só no hover -->
+            <div class="hover-actions">
+                <div class="size">
+                    <span class="size-text">Tamanho:</span>
+                    <span class="size-value">60</span>
+                    <span class="size-value">45</span>
+                    <span class="size-value">50</span>
+                </div>
+                <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
+            </div>
+        </div>
+
+        <!-- 8 Card -->
+        <div class="product-card">
+            <div class="wishlist-btn">
+                <span>♡</span>
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+
+            <div class="product-info">
+                <h3 class="product-title">Nome do Colar</h3>
+                <p class="product-metal"><strong>Metal:</strong> Prata de Lei</p>
+
+                <p class="old-price">Preço que era</p>
+                <p class="new-price">Preço que passou a ser</p>
+                <p class="installments">Preço parcelado e quantidade de parcelamentos</p>
+            </div>
+
+            <!-- aparece só no hover -->
+            <div class="hover-actions">
+                <div class="size">
+                    <span class="size-text">Tamanho:</span>
+                    <span class="size-value">60</span>
+                    <span class="size-value">45</span>
+                    <span class="size-value">50</span>
+                </div>
+                <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
+            </div>
+        </div>
+
+        <!-- 9 Card -->
+        <div class="product-card">
+            <div class="wishlist-btn">
+                <span>♡</span>
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+
+            <div class="product-info">
+                <h3 class="product-title">Nome do Colar</h3>
+                <p class="product-metal"><strong>Metal:</strong> Prata de Lei</p>
+
+                <p class="old-price">Preço que era</p>
+                <p class="new-price">Preço que passou a ser</p>
+                <p class="installments">Preço parcelado e quantidade de parcelamentos</p>
+            </div>
+
+            <!-- aparece só no hover -->
+            <div class="hover-actions">
+                <div class="size">
+                    <span class="size-text">Tamanho:</span>
+                    <span class="size-value">60</span>
+                    <span class="size-value">45</span>
+                    <span class="size-value">50</span>
+                </div>
+                <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
+            </div>
+        </div>
+
+        <!-- 10 Card -->
+        <div class="product-card">
+            <div class="wishlist-btn">
+                <span>♡</span>
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+
+            <div class="product-info">
+                <h3 class="product-title">Nome do Colar</h3>
+                <p class="product-metal"><strong>Metal:</strong> Prata de Lei</p>
+
+                <p class="old-price">Preço que era</p>
+                <p class="new-price">Preço que passou a ser</p>
+                <p class="installments">Preço parcelado e quantidade de parcelamentos</p>
+            </div>
+
+            <!-- aparece só no hover -->
+            <div class="hover-actions">
+                <div class="size">
+                    <span class="size-text">Tamanho:</span>
+                    <span class="size-value">60</span>
+                    <span class="size-value">45</span>
+                    <span class="size-value">50</span>
+                </div>
+                <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
+            </div>
+        </div>
+
+        <!-- 11 Card -->
+        <div class="product-card">
+            <div class="wishlist-btn">
+                <span>♡</span>
+            </div>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+
+            <div class="product-info">
+                <h3 class="product-title">Nome do Colar</h3>
+                <p class="product-metal"><strong>Metal:</strong> Prata de Lei</p>
+
+                <p class="old-price">Preço que era</p>
+                <p class="new-price">Preço que passou a ser</p>
+                <p class="installments">Preço parcelado e quantidade de parcelamentos</p>
+            </div>
+
+            <!-- aparece só no hover -->
+            <div class="hover-actions">
+                <div class="size">
+                    <span class="size-text">Tamanho:</span>
+                    <span class="size-value">60</span>
+                    <span class="size-value">45</span>
+                    <span class="size-value">50</span>
+                </div>
+                <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
+            </div>
+        </div>
+
     </div>
+
+    <footer>
+        <div class="footer-infos">
+            <div class="info-item">
+                <img src="https://img.freepik.com/vector-premium/pictograma-tarjetas-credito_764382-14204.jpg" alt="Pagamento">
+                <h3>PARCELAMENTO</h3>
+                <p>Parcele suas compras em 10X<br>sem juros no cartão.</p>
+            </div>
+
+            <div class="info-item">
+                <img src="https://img.freepik.com/vetores-premium/mudanca-de-troca-de-icone-troca-de-retorno-seta-de-troca-reversa-logotipo-de-troca_165079-209.jpg" alt="Troca Fácil">
+                <h3>TROCA FÁCIL</h3>
+                <p>Não serviu? A PANDORA faz<br>a troca gratuitamente.</p>
+            </div>
+
+            <div class="info-item">
+                <img src="https://static.vecteezy.com/system/resources/previews/002/191/988/large_2x/delivery-truck-icon-fast-shipping-delivery-concept-vector.jpg" alt="Entrega">
+                <h3>ENTREGA</h3>
+                <p>Frete grátis em suas compras<br>a partir de R$890,00.</p>
+            </div>
+        </div>
+
+        <div class="footer-container">
+
+            <!-- Coluna 1 -->
+            <div class="footer-col">
+                <h3>AJUDA</h3>
+                <ul>
+                    <li><a href="#">Dúvidas frequentes</a></li>
+                    <li><a href="#">Sobre os Pedidos</a></li>
+                    <li><a href="#">Política de Entrega</a></li>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="#">Guia de tamanhos</a></li>
+                    <li><a href="#">Garantia</a></li>
+                    <li><a href="#">Cuidados com as Joias</a></li>
+                    <li><a href="#">Fale conosco</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 2 -->
+            <div class="footer-col">
+                <h3>SOBRE NÓS</h3>
+                <ul>
+                    <li><a href="#">Conheça a Sylvrae</a></li>
+                    <li><a href="#">Trabalhe conosco</a></li>
+                    <li><a href="#">Nossas lojas</a></li>
+                    <li><a href="#">Política de privacidade</a></li>
+                    <li><a href="#">Clube Sylvrae</a></li>
+                    <li><a href="#">Regulamentos</a></li>
+                    <li><a href="#">Formulário de Proteção de Dados</a></li>
+                    <li><a href="#">Receba as Novidades</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3 -->
+            <div class="footer-col">
+                <h3>SAC</h3>
+                <ul>
+                    <li>(XX) XXXX-XXXX — São Paulo Capital</li>
+                    <li>XXXX-XXXX — Capitais e Regiões Metropolitanas</li>
+                    <li>0800-XXX-XXXX — Outras Regiões</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="payment-security">
+
+            <div class="payment-methods">
+                <span>Formas de pagamento:</span>
+                <img src="https://tse4.mm.bing.net/th/id/OIP.2sBA8sF7ixJtiW-3fguOyAHaDt?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Visa">
+                <img src="https://newchoice.com.br/wp-content/uploads/2019/02/master-card.png" alt="Mastercard">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.0y7yR74N0cTrfFmZ9M8AXAHaFP?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Elo">
+                <img src="https://logos-world.net/wp-content/uploads/2020/11/American-Express-Logo.png" alt="American Express">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.mLs98B1Ph-LTTu4KYPolaAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hipercard">
+                <img src="https://logowik.com/content/uploads/images/pix4641.logowik.com.webp" alt="Pix">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.eYPcuhkhwGif2uizpakfggHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Boleto Bancário">
+            </div>
+
+            <div class="security-seal">
+                <span>Pagamento seguro:</span>
+                <img src="https://images.tcdn.com.br/img/editor/up/152631/certificadossl.png" alt="Selo SSL">
+            </div>
+
+        </div>
+
+    </footer>
 </body>
 
 </html>
