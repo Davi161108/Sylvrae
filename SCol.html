@@ -7,6 +7,47 @@
     <title>Document</title>
 
     <style>
+        main {
+            padding-top: 140px;
+            /* espaço para não ficar por baixo do header+menu */
+        }
+
+        .top-header,
+        .menu {
+            position: fixed;
+            top: 70px;
+            /* altura do header */
+            left: 0;
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid #f1f1f1;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 10px 0;
+            z-index: 9998;
+            transition: transform .35s ease;
+        }
+
+        /* Header fica no topo */
+        .top-header {
+            top: 0;
+        }
+
+        /* Menu logo embaixo do header */
+        .menu {
+            top: 70px;
+            /* ajuste conforme a altura do seu header */
+            background: white;
+            padding: 10px 0;
+        }
+
+        /* Animação para esconder */
+        .hidden {
+            transform: translateY(-100%);
+        }
+
+
         .filter-box {
             width: 100%;
             max-width: 260px;
@@ -17,24 +58,24 @@
             font-family: Arial, sans-serif;
             margin-top: 10%;
         }
-        
+
         .filter-title {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 20px;
         }
-        
+
         .filter-group {
             margin-bottom: 25px;
         }
-        
+
         .filter-group h4 {
             font-size: 15px;
             margin-bottom: 10px;
             font-weight: bold;
             color: #444;
         }
-        
+
         .filter-item {
             display: flex;
             align-items: center;
@@ -43,7 +84,7 @@
             cursor: pointer;
             user-select: none;
         }
-        
+
         .filter-item input[type="checkbox"] {
             width: 18px;
             height: 18px;
@@ -51,13 +92,14 @@
             /* cor do checkbox moderno */
             cursor: pointer;
         }
-        
+
         .filter-item span {
             font-size: 14px;
             color: #333;
         }
+
         /* --- RESPONSIVO --- */
-        
+
         @media (max-width: 768px) {
             .filter-box {
                 max-width: 100%;
@@ -66,36 +108,43 @@
                 padding: 10px 0;
             }
         }
+
         /* RESET */
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
+
         /* TOPO */
-        
+
         .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid #f0c5d8;
+            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
-            background: white;
-            border-bottom: 1px solid #f0c5d8;
-            position: sticky;
-            top: 0;
-            z-index: 50;
+            z-index: 9999;
+            transition: transform .35s ease;
         }
+
         /* LOGO */
-        
+
         .logo {
             font-size: 26px;
             font-weight: bold;
             letter-spacing: 2px;
         }
+
         /* PESQUISA */
-        
+
         .search-box {
             display: flex;
             width: 40%;
@@ -103,14 +152,14 @@
             border-radius: 4px;
             overflow: hidden;
         }
-        
+
         .search-box input {
             width: 100%;
             padding: 8px 12px;
             border: none;
             outline: none;
         }
-        
+
         .search-box button {
             padding: 8px 12px;
             border: none;
@@ -118,8 +167,9 @@
             cursor: pointer;
             font-size: 18px;
         }
+
         /* ÍCONES */
-        
+
         .icons {
             display: flex;
             align-items: center;
@@ -127,22 +177,22 @@
             font-size: 22px;
             text-decoration: none;
         }
-        
+
         .icons a {
             text-decoration: none;
             border: none;
             outline: none;
             color: inherit;
         }
-        
+
         .icons a:hover {
             text-decoration: none;
         }
-        
+
         .cart {
             position: relative;
         }
-        
+
         .cart-count {
             position: absolute;
             top: -5px;
@@ -153,8 +203,9 @@
             font-size: 12px;
             border-radius: 50%;
         }
+
         /* MENU */
-        
+
         .menu {
             display: flex;
             justify-content: center;
@@ -162,12 +213,12 @@
             padding: 10px 0;
             background: white;
             border-bottom: 1px solid #f1f1f1;
-            position: fixed;
+            position: absolute;
             top: 70px;
             width: 100%;
             z-index: 999;
         }
-        
+
         .menu a {
             text-decoration: none;
             color: #333;
@@ -175,42 +226,50 @@
             font-weight: bold;
             letter-spacing: 1px;
         }
-        
+
         .menu a:hover {
             color: #d60078;
         }
+
         /* MOBILE */
-        
+
         @media (max-width:900px) {
             .search-box {
-                display: none;
+                display: none !important;
             }
+
             .menu {
-                flex-wrap: wrap;
-                gap: 12px;
+                display: none !important;
             }
+
             .top-header {
-                padding: 10px 20px;
+                justify-content: center;
+                padding: 12px 20px;
+                height: 70px;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1000;
             }
         }
-        
-         :root {
+
+        :root {
             --purple-1: #6b1b6e;
             --purple-2: #d24c8f;
             --accent: #ffefef;
             --black: #0b0b0b;
         }
-        
+
         * {
             box-sizing: border-box
         }
-        
+
         body {
             margin: 0;
             font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
             background: #fff
         }
-        
+
         .category-banner {
             width: 100%;
             display: flex;
@@ -222,12 +281,12 @@
             flex-wrap: wrap;
             /* importante para responsividade */
         }
-        
+
         .banner-text {
             flex: 1;
             min-width: 260px;
         }
-        
+
         .banner-text h1 {
             font-size: 45px;
             font-weight: 900;
@@ -236,13 +295,13 @@
             align-items: center;
             gap: 15px;
         }
-        
+
         .banner-text .product-count {
             font-size: 18px;
             font-weight: 400;
             color: #444;
         }
-        
+
         .banner-text p {
             margin-top: 18px;
             max-width: 480px;
@@ -250,47 +309,53 @@
             line-height: 1.5;
             color: #333;
         }
-        
+
         .banner-image {
             flex: 1;
             display: flex;
             justify-content: flex-end;
         }
-        
+
         .banner-image img {
             width: 100%;
             max-width: 520px;
             object-fit: contain;
         }
+
         /* --- RESPONSIVIDADE --- */
         /* tablets */
-        
+
         @media (max-width: 900px) {
             .category-banner {
                 padding: 40px 40px;
             }
+
             .banner-text h1 {
                 font-size: 38px;
             }
         }
+
         /* celulares */
-        
+
         @media (max-width: 600px) {
             .category-banner {
                 flex-direction: column;
                 text-align: left;
                 padding: 30px 20px;
             }
+
             .banner-text h1 {
                 font-size: 32px;
             }
+
             .banner-image img {
                 max-width: 350px;
                 margin-top: 20px;
             }
         }
+
         /* --- CARD BASE --- */
-        
+
         .product-card {
             width: 100%;
             max-width: 320px;
@@ -304,12 +369,13 @@
             transition: transform .25s ease;
             margin-top: 10%;
         }
-        
+
         .product-card:hover {
             transform: translateY(-5px);
         }
+
         /* --- WISHLIST / CORAÇÃO --- */
-        
+
         .wishlist-btn {
             position: absolute;
             top: 10px;
@@ -325,48 +391,51 @@
             cursor: pointer;
             transition: .3s;
         }
-        
+
         .wishlist-btn:hover {
             background: #ffe3ea;
         }
+
         /* --- IMAGEM --- */
-        
+
         .product-image {
             width: 100%;
             border-radius: 8px;
         }
+
         /* --- INFO DO PRODUTO --- */
-        
+
         .product-info {
             margin-top: 12px;
         }
-        
+
         .product-title {
             font-size: 16px;
             font-weight: bold;
             margin-bottom: 5px;
         }
-        
+
         .product-metal,
         .installments {
             font-size: 14px;
             color: #555;
         }
-        
+
         .old-price {
             text-decoration: line-through;
             color: #777;
             margin-top: 8px;
             font-size: 14px;
         }
-        
+
         .new-price {
             font-size: 20px;
             font-weight: bold;
             color: #000;
         }
+
         /* --- HOVER ACTIONS (aparecem no hover) --- */
-        
+
         .hover-actions {
             position: absolute;
             bottom: -120px;
@@ -380,31 +449,34 @@
             gap: 10px;
             transition: bottom .35s ease;
         }
+
         /* revela no hover */
-        
+
         .product-card:hover .hover-actions {
             bottom: 0;
         }
+
         /* --- TAMANHO --- */
-        
+
         .size {
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        
+
         .size-text {
             font-weight: bold;
         }
-        
+
         .size-value {
             background: #000;
             color: #fff;
             border-radius: 50px;
             padding: 5px 12px;
         }
+
         /* --- BOTÃO ADICIONAR AO CARRINHO --- */
-        
+
         .add-cart-btn {
             width: 100%;
             background: #ff6b82;
@@ -417,41 +489,71 @@
             cursor: pointer;
             transition: .3s;
         }
-        
+
         .add-cart-btn:hover {
             background: #ff4f6b;
         }
+
         /* --- RESPONSIVIDADE --- */
         /* Ajusta tamanho e reorganização em telas pequenas */
-        
+
         @media (max-width: 480px) {
             .product-card {
                 max-width: 100%;
                 padding: 12px;
             }
+
             .product-title {
                 font-size: 15px;
             }
+
             .new-price {
                 font-size: 18px;
             }
+
             .add-cart-btn {
                 font-size: 14px;
                 padding: 10px;
             }
         }
-        
+
         .products-container {
             display: flex;
             flex-wrap: wrap;
             gap: 25px;
         }
-        
+
         .product-card {
             flex: 1 1 260px;
         }
+
+
+
+
+        .btn-mostrar {
+            display: block;
+            margin: 40px auto;
+            padding: 12px 28px;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #ff4f6b, #ff4f6cbb);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 6px 15px #ff4f6c6e;
+        }
+
+        .btn-mostrar:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 20px #ff4f6c59;
+        }
+
+
+
         /**/
-        
+
         .footer-infos {
             background-color: #23201B;
             /* mesma cor da imagem */
@@ -462,14 +564,14 @@
             text-align: center;
             flex-wrap: wrap;
             /* responsivo */
-            margin-top: 10%;
+            margin-top: 5%;
         }
-        
+
         .footer-infos .info-item img {
             width: 40px;
             margin-bottom: 15px;
         }
-        
+
         .footer-infos h3 {
             color: #fff;
             font-size: 16px;
@@ -477,20 +579,21 @@
             letter-spacing: 1px;
             font-weight: 600;
         }
-        
+
         .footer-infos p {
             color: #ddd;
             font-size: 14px;
             line-height: 1.4;
         }
+
         /**/
-        
+
         .footer {
             background: #f2f2f279;
             padding: 40px 0;
             font-family: Arial, sans-serif;
         }
-        
+
         .footer-container {
             display: flex;
             justify-content: space-between;
@@ -501,47 +604,49 @@
             text-align: center;
             background-color: #ffffff54;
         }
-        
+
         .footer-col {
             width: 30%;
             min-width: 250px;
         }
-        
+
         .footer-col h3 {
             font-size: 18px;
             margin-bottom: 15px;
             font-weight: bold;
         }
-        
+
         .footer-col ul {
             list-style: none;
             padding: 0;
         }
-        
+
         .footer-col ul li {
             margin-bottom: 8px;
         }
-        
+
         .footer-col ul li a {
             text-decoration: none;
             color: #333;
             transition: 0.3s;
         }
-        
+
         .footer-col ul li a:hover {
             color: #000;
             text-decoration: underline;
         }
+
         /* Responsivo */
-        
+
         @media (max-width: 768px) {
             .footer-col {
                 width: 100%;
                 margin-bottom: 20px;
             }
         }
+
         /**/
-        
+
         .payment-security {
             display: flex;
             justify-content: space-between;
@@ -552,7 +657,7 @@
             margin: auto;
             gap: 20px;
         }
-        
+
         .payment-methods,
         .security-seal {
             display: flex;
@@ -560,21 +665,22 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-        
+
         .payment-methods span,
         .security-seal span {
             font-weight: bold;
             margin-right: 10px;
         }
-        
+
         .payment-methods img,
         .security-seal img {
             height: 32px;
             /* ajuste o tamanho como quiser */
             object-fit: contain;
         }
+
         /* Responsivo */
-        
+
         @media (max-width: 768px) {
             .payment-security {
                 flex-direction: column;
@@ -586,7 +692,7 @@
 
 <body>
     <header class="top-header">
-        <div class="logo">Sylvrae</div>
+        <div class="logo">SYLVRAE</div>
 
         <div class="search-box">
             <input type="text" placeholder="Busque por nome ou código...">
@@ -594,27 +700,21 @@
         </div>
 
         <div class="icons">
-            <span><a href="#">👤</span></a>
-            <span><a href="#">📍</span></a>
-            <span><a href="#">♡</span></a>
-            <span>
-                <class="cart"><a href="#">🛍<span class="cart-count">0</span>
-            </span>
-            </a>
+            <a href="#">👤</a>
+            <a href="#">📍</a>
+            <a href="#">♡</a>
+            <a href="#" class="cart">🛍<span class="cart-count">0</span></a>
         </div>
     </header>
 
     <nav class="menu">
-        <a href="#">CYBER WEEK</a>
-        <a href="#">CHARMS</a>
-        <a href="#">BRACELETES</a>
         <a href="#">ANÉIS</a>
         <a href="#">COLARES</a>
         <a href="#">BRINCOS</a>
-        <a href="#">ACESSÓRIOS</a>
         <a href="#">LANÇAMENTOS</a>
         <a href="#">SOBRE</a>
     </nav>
+
 
 
 
@@ -624,12 +724,14 @@
         <div class="banner-text">
             <h1>COLARES</h1>
             <p>
-                Existem joias que são essenciais para trazer mais charme e elegância para o dia a dia. E o colar feminino é uma peça que não pode faltar.
+                Existem joias que são essenciais para trazer mais charme e elegância para o dia a dia. E o colar
+                feminino é uma peça que não pode faltar.
             </p>
         </div>
 
         <div class="banner-image">
-            <img src="https://wallpapers.com/images/hd/jewelry-background-t5inm8ksiovejqso.jpg" alt="Colares da Coleção">
+            <img src="https://wallpapers.com/images/hd/jewelry-background-t5inm8ksiovejqso.jpg"
+                alt="Colares da Coleção">
         </div>
     </section>
 
@@ -709,7 +811,8 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://pandorajoias.vtexassets.com/arquivos/ids/426115/PNGTRPNT_392303C00_RGB.png?v=638962989790200000" alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://pandorajoias.vtexassets.com/arquivos/ids/426115/PNGTRPNT_392303C00_RGB.png?v=638962989790200000"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Colar De Corrente De Elos Duplos Pandora Me</h3>
@@ -736,7 +839,8 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Nome do Colar</h3>
@@ -765,7 +869,8 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Nome do Colar</h3>
@@ -794,7 +899,8 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Nome do Colar</h3>
@@ -823,7 +929,8 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Nome do Colar</h3>
@@ -852,7 +959,8 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Nome do Colar</h3>
@@ -881,7 +989,8 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Nome do Colar</h3>
@@ -910,7 +1019,8 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Nome do Colar</h3>
@@ -939,7 +1049,8 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Nome do Colar</h3>
@@ -968,7 +1079,8 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Nome do Colar</h3>
@@ -997,7 +1109,8 @@
                 <span>♡</span>
             </div>
 
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s" alt="Colar de Corrente de Elos Duplos" class="product-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsATi0Vjjj_7ekBMscUaf-W7COw7gZrBYqvA&s"
+                alt="Colar de Corrente de Elos Duplos" class="product-image">
 
             <div class="product-info">
                 <h3 class="product-title">Nome do Colar</h3>
@@ -1019,25 +1132,29 @@
                 <button class="add-cart-btn">ADICIONAR AO CARRINHO</button>
             </div>
         </div>
-
     </div>
+
+    <button class="btn-mostrar">Mostrar mais</button>
 
     <footer>
         <div class="footer-infos">
             <div class="info-item">
-                <img src="https://img.freepik.com/vector-premium/pictograma-tarjetas-credito_764382-14204.jpg" alt="Pagamento">
+                <img src="https://img.freepik.com/vector-premium/pictograma-tarjetas-credito_764382-14204.jpg"
+                    alt="Pagamento">
                 <h3>PARCELAMENTO</h3>
                 <p>Parcele suas compras em 10X<br>sem juros no cartão.</p>
             </div>
 
             <div class="info-item">
-                <img src="https://img.freepik.com/vetores-premium/mudanca-de-troca-de-icone-troca-de-retorno-seta-de-troca-reversa-logotipo-de-troca_165079-209.jpg" alt="Troca Fácil">
+                <img src="https://img.freepik.com/vetores-premium/mudanca-de-troca-de-icone-troca-de-retorno-seta-de-troca-reversa-logotipo-de-troca_165079-209.jpg"
+                    alt="Troca Fácil">
                 <h3>TROCA FÁCIL</h3>
                 <p>Não serviu? A PANDORA faz<br>a troca gratuitamente.</p>
             </div>
 
             <div class="info-item">
-                <img src="https://static.vecteezy.com/system/resources/previews/002/191/988/large_2x/delivery-truck-icon-fast-shipping-delivery-concept-vector.jpg" alt="Entrega">
+                <img src="https://static.vecteezy.com/system/resources/previews/002/191/988/large_2x/delivery-truck-icon-fast-shipping-delivery-concept-vector.jpg"
+                    alt="Entrega">
                 <h3>ENTREGA</h3>
                 <p>Frete grátis em suas compras<br>a partir de R$890,00.</p>
             </div>
@@ -1091,13 +1208,18 @@
 
             <div class="payment-methods">
                 <span>Formas de pagamento:</span>
-                <img src="https://tse4.mm.bing.net/th/id/OIP.2sBA8sF7ixJtiW-3fguOyAHaDt?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Visa">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.2sBA8sF7ixJtiW-3fguOyAHaDt?rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="Visa">
                 <img src="https://newchoice.com.br/wp-content/uploads/2019/02/master-card.png" alt="Mastercard">
-                <img src="https://tse2.mm.bing.net/th/id/OIP.0y7yR74N0cTrfFmZ9M8AXAHaFP?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Elo">
-                <img src="https://logos-world.net/wp-content/uploads/2020/11/American-Express-Logo.png" alt="American Express">
-                <img src="https://tse4.mm.bing.net/th/id/OIP.mLs98B1Ph-LTTu4KYPolaAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Hipercard">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.0y7yR74N0cTrfFmZ9M8AXAHaFP?rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="Elo">
+                <img src="https://logos-world.net/wp-content/uploads/2020/11/American-Express-Logo.png"
+                    alt="American Express">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.mLs98B1Ph-LTTu4KYPolaAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="Hipercard">
                 <img src="https://logowik.com/content/uploads/images/pix4641.logowik.com.webp" alt="Pix">
-                <img src="https://tse3.mm.bing.net/th/id/OIP.eYPcuhkhwGif2uizpakfggHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Boleto Bancário">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.eYPcuhkhwGif2uizpakfggHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="Boleto Bancário">
             </div>
 
             <div class="security-seal">
@@ -1106,8 +1228,30 @@
             </div>
 
         </div>
-
     </footer>
+
+    <script>
+        let lastScroll = 0;
+
+        const header = document.querySelector(".top-header");
+        const menu = document.querySelector(".menu");
+
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > lastScroll) {
+                // Descendo → esconder
+                header.classList.add("hidden");
+                menu.classList.add("hidden");
+            } else {
+                // Subindo → mostrar
+                header.classList.remove("hidden");
+                menu.classList.remove("hidden");
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
 </body>
 
 </html>
