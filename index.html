@@ -740,7 +740,7 @@
     <section class="categorias-container">
 
         <div class="titulo-area">
-            <h2>JOALHERIA SYLVARE</h2>
+            <h2>JOALHERIA SYLVRAE</h2>
             <span class="sub">COMPRE POR CATEGORIAS</span>
         </div>
 
@@ -786,7 +786,7 @@
                 <div class="card-momento pequeno reveal">
                     <img src="https://pandorajoias.vtexassets.com/assets/vtex.file-manager-graphql/images/1d53d92c-2578-4d05-a28e-5f496842b3f8___69530a0778c0121868e2d1caef1b4f59.jpg"
                         alt="">
-                    <div class="hover-info">SYLVARE TALISMÃ</div>
+                    <div class="hover-info">SYLVRAE TALISMÃ</div>
                 </div>
 
                 <div class="card-momento pequeno reveal">
@@ -813,7 +813,7 @@
         </div>
 
         <div class="banner-texto">
-            <h1>STRANGER THINGS X<br>SYLVARE</h1>
+            <h1>STRANGER THINGS X<br>SYLVRAE</h1>
 
             <p>
                 Entre no universo sombrio de Stranger Things com peças que unem mistério, estilo e personalidade.<br>
@@ -840,6 +840,30 @@
     });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+
+
+
+    let lastScroll = 0;
+
+    const header = document.querySelector(".top-header");
+    const menu = document.querySelector(".menu");
+
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > lastScroll) {
+            // Descendo → esconder
+            header.classList.add("hidden");
+            menu.classList.add("hidden");
+        } else {
+            // Subindo → mostrar
+            header.classList.remove("hidden");
+            menu.classList.remove("hidden");
+        }
+
+        lastScroll = currentScroll;
+    });
 </script>
 
 
