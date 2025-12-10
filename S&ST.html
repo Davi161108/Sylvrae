@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sylvrae</title>
+    <style>
+        /* ---------------- RESET ---------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url('https://images.hdqwalls.com/download/stranger-things-season4-sq-1440x900.jpg');
+            /* substitua pela sua imagem */
+            background-size: cover;
+            /* cobre toda a área da tela */
+            background-position: center;
+            /* centraliza a imagem */
+            background-repeat: no-repeat;
+            /* não repete */
+            background-attachment: fixed;
+            /* mantém fixa ao rolar a página */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ---------------- TOPO ---------------- */
+        .top-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid #f0c5d8;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9999;
+            transition: transform 0.35s ease;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .search-box {
+            display: flex;
+            width: 40%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 8px 12px;
+            border: none;
+            background: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 22px;
+        }
+
+        .cart {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background: #e00076;
+            color: white;
+            padding: 2px 6px;
+            font-size: 12px;
+            border-radius: 50%;
+        }
+
+        /* ---------------- MENU ---------------- */
+        .menu {
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid #f1f1f1;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 10px 0;
+            z-index: 9998;
+            transition: transform 0.35s ease;
+        }
+
+        .menu a {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #333;
+        }
+
+        .menu a:hover {
+            color: #d60078;
+        }
+
+        /* ---------------- ANIMAÇÃO SCROLL ---------------- */
+        .hidden {
+            transform: translateY(-100%);
+        }
+
+        /* ---------------- HERO BANNER FULLSCREEN ---------------- */
+        .hero-banner {
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://people.com/thmb/5z4l0b72sg7VcBZYRn66ZvK5p3U=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(961x0:963x2)/Stranger-Things-Pandora-101624-1-29cdeaf7e686466994fa316eebd714ab.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* sobreposição para legibilidade */
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 0;
+        }
+
+        .hero-text {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            color: #fff;
+            text-align: right;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.2;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-text h2 {
+            font-size: 32px;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        /* ---------------- RESPONSIVO ---------------- */
+        @media (max-width: 900px) {
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-text h2 {
+                font-size: 24px;
+            }
+
+            .hero-text {
+                bottom: 30px;
+                right: 30px;
+            }
+
+            .search-box {
+                display: none !important;
+            }
+
+            .menu {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
+            .hero-text h2 {
+                font-size: 20px;
+            }
+
+            .hero-text {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+
+        .promo-section {
+            display: flex;
+            justify-content: flex-start;
+            /* texto à esquerda */
+            align-items: flex-start;
+            padding: 60px 80px;
+            /* fundo da seção, opcional */
+            flex-wrap: wrap;
+            /* para responsividade */
+        }
+
+        .promo-text h1 {
+            font-size: 36px;
+            font-weight: 900;
+            color: #e50914;
+            /* vermelho Netflix */
+            margin-bottom: 10px;
+        }
+
+        .promo-text h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .promo-text h3 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #ffffff;
+            margin-bottom: 25px;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
+        .btn-collection {
+            padding: 12px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: #e50914;
+            /* vermelho Netflix */
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .btn-collection:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 15px rgba(229, 9, 20, 0.5);
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 900px) {
+            .promo-section {
+                padding: 40px 20px;
+            }
+
+            .promo-text h1 {
+                font-size: 28px;
+            }
+
+            .promo-text h2 {
+                font-size: 22px;
+            }
+
+            .promo-text h3 {
+                font-size: 16px;
+                max-width: 100%;
+            }
+
+            .btn-collection {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+
+
+
+
+
+
+        .carousel {
+            flex: 1;
+            max-width: 800px;
+            /* largura do carrossel */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 10px;
+            /* espaço entre imagens */
+            transition: transform 0.3s linear;
+        }
+
+        .carousel-track img {
+            min-width: 200px;
+            /* largura de cada imagem */
+            height: 250px;
+            /* altura */
+            object-fit: cover;
+            border-radius: 0;
+            /* sem borda */
+            background: none;
+            /* sem fundo */
+        }
+
+
+
+
+
+
+
+
+
+        .sobre {
+            display: flex;
+            justify-content: flex-start;
+            /* texto à esquerda */
+            align-items: flex-start;
+            padding: 60px 80px;
+            /* fundo da seção, opcional */
+            flex-wrap: wrap;
+            /* para responsividade */
+        }
+
+        .sobre-text h1 {
+            font-size: 30px;
+            font-weight: 900;
+            color: #ffffff;
+            /* vermelho Netflix */
+            margin-bottom: 10px;
+        }
+
+        .sobre-text h3 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #ffffff;
+            margin-bottom: 25px;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="top-header">
+        <div class="logo">SYLVRAE</div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Busque por nome ou código...">
+            <button>🔍</button>
+        </div>
+
+        <div class="icons">
+            <a href="#">👤</a>
+            <a href="#">📍</a>
+            <a href="#">♡</a>
+            <a href="#" class="cart">🛍<span class="cart-count">0</span></a>
+        </div>
+    </header>
+
+    <!-- MENU -->
+    <nav class="menu">
+        <a href="#">ANÉIS</a>
+        <a href="#">COLARES</a>
+        <a href="#">BRINCOS</a>
+        <a href="#">LANÇAMENTOS</a>
+        <a href="#">SOBRE</a>
+    </nav>
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner">
+        <div class="hero-text">
+            <h1>SYLVRAE X</h1>
+            <h2>STRANGER THINGS</h2>
+        </div>
+    </section>
+
+    <section class="promo-section">
+        <div class="promo-text">
+            <h1>NETFLIX</h1>
+            <h2>ALERTA VERMELHO, NERDS!</h2>
+            <h3>Vire seu estilo de cabeça para baixo com charms e joias inspiradas no universo de Stranger Things.</h3>
+            <button class="btn-collection">Veja toda coleção</button>
+        </div>
+
+
+
+
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="img1.jpg" alt="">
+                <img src="img2.jpg" alt="">
+                <img src="img3.jpg" alt="">
+                <img src="img4.jpg" alt="">
+                <!-- repita quantas imagens quiser -->
+            </div>
+        </div>
+
+    </section>
+
+    <section class="sobre">
+        <div class="sobre-text">
+            <h1>SYLVRAE X NETFLIX:</h1>
+            <h1>A COLEÇÃO QUE VAI CHOCAR VOCÊ!</h1>
+            <h3>Com joias finalizadas à mão, a linha Stranger Things retrata as cenas icônicas da série em charms que
+                brilham no escuro, anéis e muito mais. Do Mundo Invertido ao Demogorgon, cada peça foi pensada para fãs,
+                criada por fãs.</h3>
+        </div>
+    </section>
+
+    <script>
+        let lastScroll = 0;
+        const header = document.querySelector(".top-header");
+        const menu = document.querySelector(".menu");
+
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > lastScroll && currentScroll > 150) {
+                // descendo → esconder
+                header.classList.add("hidden");
+                menu.classList.add("hidden");
+            } else {
+                // subindo → mostrar
+                header.classList.remove("hidden");
+                menu.classList.remove("hidden");
+            }
+
+            lastScroll = currentScroll;
+        });
+
+
+
+
+        const track = document.querySelector('.carousel-track');
+        let speed = 1;
+        let x = 0;
+
+        function animateCarousel() {
+            x -= speed;
+            if (Math.abs(x) >= track.scrollWidth / 2) {
+                x = 0;
+            }
+            track.style.transform = `translateX(${x}px)`;
+            requestAnimationFrame(animateCarousel);
+        }
+
+        animateCarousel();
+
+    </script>
+</body>
+
+</html>
