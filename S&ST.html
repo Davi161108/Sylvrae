@@ -526,6 +526,7 @@
             border-radius: 12px;
             color: white;
             font-family: Arial, sans-serif;
+            margin-left: 6%;
         }
 
         /* Título principal */
@@ -606,6 +607,38 @@
                 height: 14px;
             }
         }
+
+        /* CELULAR → Accordion fechado por padrão */
+        @media (max-width: 600px) {
+
+            .accordion-content {
+                display: none;
+                margin-left: 5px;
+                padding-left: 10px;
+                border-left: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .accordion-header {
+                cursor: pointer;
+                position: relative;
+                padding-right: 25px;
+            }
+
+            /* seta para indicar abrir/fechar */
+            .accordion-header::after {
+                content: "▼";
+                position: absolute;
+                right: 0;
+                top: 2px;
+                font-size: 12px;
+                transition: transform 0.3s;
+            }
+
+            .accordion-header.active::after {
+                transform: rotate(180deg);
+            }
+        }
+
 
 
 
@@ -865,6 +898,8 @@
         </div>
     </section>
 
+    
+
 
 
 
@@ -872,81 +907,98 @@
 
         <h2>Filtros</h2>
 
-        <!-- DEPARTAMENTO -->
         <div class="filter-section">
-            <h3>Departamento</h3>
-            <label><input type="checkbox"> CHARMS</label>
-            <label><input type="checkbox"> BRACELETES</label>
-            <label><input type="checkbox"> ANÉIS</label>
+            <h3 class="accordion-header">Departamento</h3>
+            <div class="accordion-content">
+                <label><input type="checkbox"> CHARMS</label>
+                <label><input type="checkbox"> BRACELETES</label>
+                <label><input type="checkbox"> ANÉIS</label>
+            </div>
         </div>
 
-        <!-- CATEGORIA -->
         <div class="filter-section">
-            <h3>Categoria</h3>
-            <label><input type="checkbox"> Charms de prata</label>
-            <label><input type="checkbox"> Charms Pendentes</label>
-            <label><input type="checkbox"> Charm esmaltado</label>
-            <label><input type="checkbox"> Bracelete maleavel</label>
-            <label><input type="checkbox"> Bracelete Esmaltado</label>
-            <label><input type="checkbox"> Anel prata</label>
-            <label><input type="checkbox"> Charm cristal</label>
+            <h3 class="accordion-header">Categoria</h3>
+            <div class="accordion-content">
+                <label><input type="checkbox"> Charms de prata</label>
+                <label><input type="checkbox"> Charms Pendentes</label>
+                <label><input type="checkbox"> Charm esmaltado</label>
+                <label><input type="checkbox"> Bracelete maleavel</label>
+                <label><input type="checkbox"> Bracelete Esmaltado</label>
+                <label><input type="checkbox"> Anel prata</label>
+                <label><input type="checkbox"> Charm cristal</label>
+            </div>
         </div>
 
-        <!-- SUBCATEGORIA -->
         <div class="filter-section">
-            <h3>Subcategoria</h3>
-            <label><input type="checkbox"> Bracelete maleavel em prata</label>
-            <label><input type="checkbox"> Charm pendente de prata</label>
+            <h3 class="accordion-header">Subcategoria</h3>
+            <div class="accordion-content">
+                <label><input type="checkbox"> Bracelete maleavel em prata</label>
+                <label><input type="checkbox"> Charm pendente de prata</label>
+            </div>
         </div>
 
-        <!-- COR -->
         <div class="filter-section">
-            <h3>Cor</h3>
-            <label><input type="checkbox"> Vermelho</label>
-            <label><input type="checkbox"> Multi Cor</label>
+            <h3 class="accordion-header">Cor</h3>
+            <div class="accordion-content">
+                <label><input type="checkbox"> Vermelho</label>
+                <label><input type="checkbox"> Multi Cor</label>
+            </div>
         </div>
 
-        <!-- MARCA -->
         <div class="filter-section">
-            <h3>Marca</h3>
-            <label><input type="checkbox"> Pandora</label>
+            <h3 class="accordion-header">Marca</h3>
+            <div class="accordion-content">
+                <label><input type="checkbox"> Pandora</label>
+            </div>
         </div>
 
-        <!-- MATERIAL -->
         <div class="filter-section">
-            <h3>Material</h3>
-            <label><input type="checkbox"> Nenhuma Pedra</label>
+            <h3 class="accordion-header">Material</h3>
+            <div class="accordion-content">
+                <label><input type="checkbox"> Nenhuma Pedra</label>
+            </div>
         </div>
 
-        <!-- METAL -->
         <div class="filter-section">
-            <h3>Metal</h3>
-            <label><input type="checkbox"> Prata de Lei</label>
+            <h3 class="accordion-header">Metal</h3>
+            <div class="accordion-content">
+                <label><input type="checkbox"> Prata de Lei</label>
+            </div>
         </div>
 
-        <!-- PEDRAS -->
         <div class="filter-section">
-            <h3>Pedras</h3>
-            <label><input type="checkbox"> Nenhuma Pedra</label>
+            <h3 class="accordion-header">Pedras</h3>
+            <div class="accordion-content">
+                <label><input type="checkbox"> Nenhuma Pedra</label>
+            </div>
         </div>
 
-        <!-- TAMANHO -->
         <div class="filter-section">
-            <h3>Tamanho</h3>
-            <label><input type="checkbox"> 12</label>
-            <label><input type="checkbox"> 14</label>
-            <label><input type="checkbox"> 16</label>
-            <label><input type="checkbox"> 17 CM</label>
+            <h3 class="accordion-header">Tamanho</h3>
+            <div class="accordion-content">
+                <label><input type="checkbox"> 12</label>
+                <label><input type="checkbox"> 14</label>
+                <label><input type="checkbox"> 16</label>
+                <label><input type="checkbox"> 17 CM</label>
+            </div>
         </div>
 
-        <!-- PREÇO -->
         <div class="filter-section">
-            <h3>Faixa de Preço</h3>
-            <label><input type="checkbox"> R$ 1.639,00</label>
-            <label><input type="checkbox"> R$ 1.640,00</label>
+            <h3 class="accordion-header">Faixa de Preço</h3>
+            <div class="accordion-content">
+                <label><input type="checkbox"> R$ 1.639,00</label>
+                <label><input type="checkbox"> R$ 1.640,00</label>
+            </div>
         </div>
 
     </div>
+
+
+
+
+
+    
+
 
 
 
@@ -1108,6 +1160,23 @@
 
         animateCarousel();
 
+
+
+
+
+        document.querySelectorAll(".accordion-header").forEach(header => {
+            header.addEventListener("click", () => {
+                header.classList.toggle("active");
+
+                const content = header.nextElementSibling;
+
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        });
     </script>
 </body>
 
