@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <title>Login | SYLVRAE</title>
+
+    <!-- FONTES ELEGANTES -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Montserrat", sans-serif;
+            background: #ffffff;
+            color: #000;
+        }
+
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: white;
+            border-bottom: 1px solid #f0c5d8;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        /* LOGO */
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 12px;
+            border: none;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 8px 12px;
+            border: none;
+            background: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* SEARCH */
+        .search-box {
+            display: flex;
+            align-items: center;
+            width: 40%;
+            max-width: 350px;
+            background: #f2f2f2;
+            border-radius: 20px;
+            padding: 5px 10px;
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            width: 100%;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-box button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* ICONS */
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .icons i {
+            font-size: 25px;
+            color: #444;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .icons i:hover {
+            color: #d60078;
+        }
+
+        /* SACOLA COM NOTIFICAÇÃO */
+        .cart {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -10px;
+            background: #e00076;
+            color: white;
+            padding: 2px 6px;
+            font-size: 11px;
+            border-radius: 50%;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 750px) {
+            .search-box {
+                display: none;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .top-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .icons i {
+                font-size: 22px;
+            }
+        }
+
+
+        /* MENU */
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 10px 0;
+            background: white;
+            border-bottom: 1px solid #f1f1f1;
+            position: fixed;
+            top: 70px;
+            width: 100%;
+            z-index: 999;
+
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .menu a:hover {
+            color: #d60078;
+        }
+
+
+        @media (max-width:900px) {
+            .search-box {
+                display: none;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .top-header {
+                padding: 10px 20px;
+            }
+        }
+
+        :root {
+            --purple-1: #6b1b6e;
+            --purple-2: #d24c8f;
+            --accent: #ffefef;
+            --black: #0b0b0b;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+            background: #fff
+        }
+
+        @media (max-width: 900px) {
+
+            /* Oculta menu principal */
+            .menu {
+                display: none !important;
+            }
+
+            /* Oculta barra de busca */
+            .search-box {
+                display: none !important;
+            }
+
+            .top-header {
+                justify-content: center;
+                padding: 12px 20px;
+                height: 70px;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1000;
+            }
+
+            /* Logo centralizada */
+            .logo {
+                font-size: 22px;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            /* Ícones alinhados à direita */
+            .icons {
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                gap: 10px;
+            }
+
+            /* Esconde os ícones que você não quer no mobile */
+            .icons span:nth-child(2),
+            /* localização */
+            .icons span:nth-child(3)
+
+            /* coração */
+                {
+                display: none !important;
+            }
+
+
+            /* Caixa de categorias mais ajustada */
+            .categorias-grid {
+                width: 90%;
+            }
+
+            /* Texto da seção */
+            .texto-lateral h2 {
+                text-align: center;
+                font-size: 28px;
+            }
+        }
+
+        /* Título (logo) mais sofisticado */
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-weight: 600;
+            font-size: 42px;
+            letter-spacing: 5px;
+        }
+
+        /* Container principal */
+        .login-container {
+            max-width: 900px;
+            margin: 60px auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Colunas internas */
+        .login-left,
+        .login-right {
+            width: 45%;
+        }
+
+        /* Botões sociais */
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #000;
+            background: white;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .login-btn:hover {
+            background: #f4f4f4;
+        }
+
+        /* Inputs */
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+        }
+
+        .login-submit {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            color: #fff;
+            border: none;
+            font-weight: 600;
+            margin-top: 10px;
+            cursor: pointer;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .login-submit:hover {
+            background: #222;
+        }
+
+        /* Títulos internos */
+        .login-container p {
+            font-family: "Playfair Display", serif;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        /* Texto inferior */
+        /* Texto inferior estilizado */
+        .info-box {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 45px 50px;
+            background: #f7f7f7;
+            /* Cinza premium */
+            border-radius: 12px;
+            border: 1px solid #e4e4e4;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .info-box h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .info-box p {
+            font-family: "Montserrat", sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+                width: 90%;
+            }
+
+            .login-left,
+            .login-right {
+                width: 100%;
+            }
+
+            .info-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header class="top-header">
+        <div class="logo">SYLVRAE</div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Busque por nome ou código...">
+            <button><i class="bi bi-search"></i></button>
+        </div>
+
+        <div class="icons">
+            <a href="#"><i class="bi bi-person"></i></a>
+            <a href="#"><i class="bi bi-geo-alt"></i></a>
+            <a href="#"><i class="bi bi-heart"></i></a>
+
+            <a href="#" class="cart">
+                <i class="bi bi-bag"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+
+    <!-- BLOCO PRINCIPAL -->
+    <div class="login-container">
+
+        <!-- ESQUERDA -->
+        <div class="login-left">
+            <p style="text-align:center;">Escolha uma opção para entrar</p>
+
+            <button class="login-btn">RECEBER CÓDIGO DE ACESSO POR EMAIL</button>
+            <button class="login-btn">ENTRAR COM GOOGLE</button>
+            <button class="login-btn">ENTRAR COM FACEBOOK</button>
+        </div>
+
+        <!-- DIREITA -->
+        <div class="login-right">
+            <p>Entrar com email e senha</p>
+
+            <input class="input-field" type="email" placeholder="Seu email">
+            <input class="input-field" type="password" placeholder="Sua senha">
+
+            <a href="#" style="font-size:12px;">Esqueci minha senha</a>
+
+            <button class="login-submit">ENTRAR</button>
+
+            <p style="margin-top: 8px; font-size: 14px;">
+                Não tem uma conta? <a href="#">Cadastrar-se</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- TEXTO FINAL -->
+    <div class="info-box">
+        <h2>SEU LOGIN NÃO ESTÁ FUNCIONANDO?</h2>
+
+        <p>VOCÊ VAI PRECISAR CADASTRAR UMA NOVA SENHA DE ACESSO</p>
+
+        <p style="max-width:600px; margin:25px auto 0; text-align:left;">
+            1. Clique no link <strong>Esqueci minha senha</strong>.<br><br>
+            2. Na área de <strong>Receber código de acesso por e-mail</strong>, digite seu email.<br><br>
+            3. Você receberá um código para redefinir sua senha.
+        </p>
+    </div>
+
+
+</body>
+
+</html>
